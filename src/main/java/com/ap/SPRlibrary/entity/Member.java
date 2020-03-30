@@ -36,11 +36,11 @@ public class Member {
 	@Id
 	@Column(name = "fiscal_code", nullable = false, length = 16)
 	private String fiscal_code;
-	@Column(name = "name", length = 30)
+	@Column(name = "name", nullable = false, length = 30)
 	private String name;
-	@Column(name = "surname", length = 30)
+	@Column(name = "surname", nullable = false, length = 30)
 	private String surname;
-	@Column(name = "dob")
+	@Column(name = "dob", nullable = false)
 	private Calendar dob;
 
 	@OneToMany(mappedBy = "member")

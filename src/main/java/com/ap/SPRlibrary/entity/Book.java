@@ -43,7 +43,7 @@ public class Book {
 	private String title;
 	@Column(name = "edition", nullable = false, length = 30)
 	private String edition;
-	@Column(name = "year")
+	@Column(name = "year", nullable = false)
 	private int year;
 	//@NotEmpty(message = "Specified language is not invalid")
 	@Language

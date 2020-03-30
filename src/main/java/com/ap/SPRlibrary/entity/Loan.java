@@ -39,10 +39,10 @@ public class Loan {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) /* autoincrement */
 	private int id_loan;
 
-	@Column(name = "starting_date")
+	@Column(name = "starting_date", nullable = false)
 	private Calendar starting_date;
 
-	@Column(name = "end_date")
+	@Column(name = "end_date", nullable = false)
 	private Calendar end_date;
 
 	@ManyToOne
