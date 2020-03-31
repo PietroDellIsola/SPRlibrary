@@ -44,6 +44,10 @@ public class MemberServiceImpl implements MemberService{
 		}
 		
 	}
+	
+	public Member getMember(String fiscal_code) {
+		return memberRepository.getOne(fiscal_code);
+	}
 
 	
 }

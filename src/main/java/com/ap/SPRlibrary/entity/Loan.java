@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -39,9 +40,11 @@ public class Loan {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) /* autoincrement */
 	private int id_loan;
 
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	@Column(name = "starting_date", nullable = false)
 	private Calendar starting_date;
 
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	@Column(name = "end_date", nullable = false)
 	private Calendar end_date;
 

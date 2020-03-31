@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.ap.SPRlibrary.entity.Book;
+import com.ap.SPRlibrary.entity.Member;
 import com.ap.SPRlibrary.entity.OutputMsg;
 import com.ap.SPRlibrary.repository.BookRepository;
 
@@ -14,7 +15,7 @@ import com.ap.SPRlibrary.repository.BookRepository;
 public class BookingServiceImpl implements BookService{
 
 	@Resource
-    private BookRepository bookingRepository;
+    private BookRepository bookRepository;
 	
 	
 	public OutputMsg insertNewBook(Book b) {
@@ -22,11 +23,11 @@ public class BookingServiceImpl implements BookService{
 		
 		try {
 			
-			if(bookingRepository.findById(b.getIsbn()).equals(Optional.empty()))
+			if(bookRepository.findById(b.getIsbn()).equals(Optional.empty()))
 			{
 				/*book not present*/
 				
-				bookingRepository.save(b);
+				bookRepository.save(b);
 				msg.setMsg("Book inserted");
 			}
 			else 	
@@ -45,5 +46,10 @@ public class BookingServiceImpl implements BookService{
 		
 	}
 
+	
+	@Override
+	public Book getBook(String isbn) {
+		return bookRepository.getOne(isbn);
+	}
 	
 }

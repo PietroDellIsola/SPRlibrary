@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -40,6 +41,7 @@ public class Member {
 	private String name;
 	@Column(name = "surname", nullable = false, length = 30)
 	private String surname;
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	@Column(name = "dob", nullable = false)
 	private Calendar dob;
 

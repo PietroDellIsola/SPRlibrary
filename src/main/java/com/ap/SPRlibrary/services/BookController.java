@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ap.SPRlibrary.entity.Book;
 import com.ap.SPRlibrary.entity.OutputMsg;
 
-
 @RestController
 @RequestMapping("/bookController")
 public class BookController {
@@ -31,6 +30,11 @@ public class BookController {
 	@PostMapping(value = "/insertNewBook")
 	public OutputMsg insertNewBook(@RequestBody Book b) {
 		return bookService.insertNewBook(b);
+	}
+	
+	@GetMapping(value = "/getBook")
+	public Book getBook(@RequestBody Book b) {
+		return bookService.getBook(b.getIsbn());
 	}
 	
 	/*

@@ -5,4 +5,5 @@ import com.ap.SPRlibrary.entity.OutputMsg;
 
 public interface MemberService {
 	public OutputMsg insertNewMember(Member m);
+	public Member getMember(String fiscal_code);
 }

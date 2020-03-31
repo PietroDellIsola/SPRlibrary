@@ -14,23 +14,22 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ap.SPRlibrary.entity.Member;
 import com.ap.SPRlibrary.entity.OutputMsg;
 
-
 @RestController
-@RequestMapping("/bookController")
+@RequestMapping("/memberController")
 public class MemberController {
 	
 	@Autowired 
 	private MemberService memberService; 
 	
-	/*@GetMapping(value = "/getOrario")
-	public OutputMsg getOrario() {
-		return videogiochiService.getOrario();
-	}*/
-	
 //	@RequestMapping(value = "/insertNuovoVideogioco", method = RequestMethod.POST)
 	@PostMapping(value = "/insertNewMember")
 	public OutputMsg insertNewBook(@RequestBody Member m) {
 		return memberService.insertNewMember(m);
+	}
+	
+	@GetMapping(value = "/getMember")
+	public Member getMember(@RequestBody Member m) {
+		return memberService.getMember(m.getFiscal_code());
 	}
 	
 	/*
