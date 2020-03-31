@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ap.SPRlibrary.entity.Book;
 import com.ap.SPRlibrary.entity.Member;
 import com.ap.SPRlibrary.entity.OutputMsg;
 
@@ -30,6 +31,11 @@ public class MemberController {
 	@GetMapping(value = "/getMember")
 	public Member getMember(@RequestBody Member m) {
 		return memberService.getMember(m.getFiscal_code());
+	}
+	
+	@GetMapping(value = "/getAllMembers")
+	public List<Member> getAllMembers(){
+		return memberService.getAllMembers();
 	}
 	
 	/*

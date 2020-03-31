@@ -37,6 +37,11 @@ public class BookController {
 		return bookService.getBook(b.getIsbn());
 	}
 	
+	@GetMapping(value = "/getAllBooks")
+	public List<Book> getAllBooks(){
+		return bookService.getAllBooks();
+	}
+	
 	/*
 	@PatchMapping(value = "/updateVideogioco")
 	public OutputMsg updateVideogioco(@RequestBody Videogioco v) 
