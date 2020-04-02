@@ -9,4 +9,5 @@ public interface MemberService {
 	public OutputMsg insertNewMember(Member m);
 	public Member getMember(String fiscal_code);
 	public List<Member> getAllMembers();
+	public OutputMsg updateMember(Member newM);
 }

@@ -38,10 +38,9 @@ public class MemberController {
 		return memberService.getAllMembers();
 	}
 	
-	/*
-	@PatchMapping(value = "/updateVideogioco")
-	public OutputMsg updateVideogioco(@RequestBody Videogioco v) 
+	@PatchMapping(value = "/updateMember")
+	public OutputMsg updateVideogioco(@RequestBody Member m) 
 	{
-		return videogiochiService.updateVideogioco(v);
-	}*/
+		return memberService.updateMember(m);
+	}
 }

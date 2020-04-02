@@ -44,10 +44,13 @@ public class Book {
 	@Column(name = "edition", nullable = false, length = 30)
 	private String edition;
 	@Column(name = "year", nullable = false)
-	private int year;
-	//@NotEmpty(message = "Specified language is not invalid")
+	private Integer year;
+	// @NotEmpty(message = "Specified language is not invalid")
 	@Language
-	@Column(name = "language", nullable = false, length = 30)
+	@Column(name = "lang", nullable = false, length = 30) /*
+															 * BE CAREFUL!!! When you will send a RESTful request, the
+															 * parameter of JsonObject shoud be "language" and not "lang"
+															 */
 	private String language;
 	@Column(name = "publisher", nullable = false, length = 30)
 	private String publisher;
@@ -79,11 +82,11 @@ public class Book {
 		this.edition = edition;
 	}
 
-	public int getYear() {
+	public Integer getYear() {
 		return year;
 	}
 
-	public void setYear(int year) {
+	public void setYear(Integer year) {
 		this.year = year;
 	}
 

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ap.SPRlibrary.entity.Book;
+import com.ap.SPRlibrary.entity.Member;
 import com.ap.SPRlibrary.entity.OutputMsg;
 
 @RestController
@@ -42,10 +43,9 @@ public class BookController {
 		return bookService.getAllBooks();
 	}
 	
-	/*
-	@PatchMapping(value = "/updateVideogioco")
-	public OutputMsg updateVideogioco(@RequestBody Videogioco v) 
+	@PatchMapping(value = "/updateBook")
+	public OutputMsg updateVideogioco(@RequestBody Book b) 
 	{
-		return videogiochiService.updateVideogioco(v);
-	}*/
+		return bookService.updateBook(b);
+	}
 }

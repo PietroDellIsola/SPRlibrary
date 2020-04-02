@@ -60,5 +60,34 @@ public class BookingServiceImpl implements BookService{
 	public List<Book> getAllBooks() {
 		return bookRepository.findAll();
 	}
+
+
+	@Override
+	public OutputMsg updateBook(Book newB) {
+		/*with this service it is possible update only title, edition, year, language, publisher.*/
+		OutputMsg msg = new OutputMsg();
+		/*First, I look up the book, if it is present, the program set the null value sent with the old value*/
+		
+		if(!bookRepository.existsById(newB.getIsbn()))
+			msg.setMsg("Book with Isbn "+newB.getIsbn()+" not found");
+		else {
+		
+		Book old = bookRepository.getOne(newB.getIsbn()); 
+
+		if(newB.getTitle()==null) newB.setTitle(old.getTitle());
+		if(newB.getEdition()==null) newB.setEdition(old.getEdition());
+		if(newB.getYear()==null) newB.setYear(old.getYear());
+		if(newB.getLanguage()==null) newB.setLanguage(old.getLanguage());
+		if(newB.getPublisher()==null) newB.setPublisher(old.getPublisher());
+		
+		if(bookRepository.updateBook(newB.getTitle(), newB.getEdition(), newB.getYear(),newB.getLanguage(),
+				newB.getPublisher(),newB.getIsbn())>0) /*returns the numbers of updated columns*/
+			msg.setMsg("Book updated");
+		
+		}	
+
+		return msg;
+		
+	}
 	
 }
