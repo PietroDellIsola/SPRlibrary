@@ -36,15 +36,16 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Table(name = "loans")
 public class Loan {
+	/* You cannot add other loans with the same member and book */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) /* autoincrement */
 	private int id_loan;
 
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@Column(name = "starting_date", nullable = false)
 	private Calendar starting_date;
 
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@Column(name = "end_date", nullable = false)
 	private Calendar end_date;
 
@@ -58,6 +59,9 @@ public class Loan {
 
 	@Column(name = "returned")
 	private boolean returned;
+
+	@Column(name = "copies", nullable = false)
+	private Integer copies;
 
 	public int getId_loan() {
 		return id_loan;
@@ -105,6 +109,14 @@ public class Loan {
 
 	public void setReturned(boolean returned) {
 		this.returned = returned;
+	}
+
+	public Integer getCopies() {
+		return copies;
+	}
+
+	public void setCopies(Integer copies) {
+		this.copies = copies;
 	}
 
 }

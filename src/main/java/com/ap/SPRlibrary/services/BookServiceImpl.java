@@ -1,8 +1,5 @@
 package com.ap.SPRlibrary.services;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,7 +12,7 @@ import com.ap.SPRlibrary.entity.OutputMsg;
 import com.ap.SPRlibrary.repository.BookRepository;
 
 @Service
-public class BookingServiceImpl implements BookService{
+public class BookServiceImpl implements BookService{
 
 	@Resource
     private BookRepository bookRepository;
@@ -64,7 +61,7 @@ public class BookingServiceImpl implements BookService{
 
 	@Override
 	public OutputMsg updateBook(Book newB) {
-		/*with this service it is possible update only title, edition, year, language, publisher.*/
+		/*with this service it is possible update only title, edition, year, available_copies, language, publisher.*/
 		OutputMsg msg = new OutputMsg();
 		/*First, I look up the book, if it is present, the program set the null value sent with the old value*/
 		
@@ -77,10 +74,11 @@ public class BookingServiceImpl implements BookService{
 		if(newB.getTitle()==null) newB.setTitle(old.getTitle());
 		if(newB.getEdition()==null) newB.setEdition(old.getEdition());
 		if(newB.getYear()==null) newB.setYear(old.getYear());
+		if(newB.getAvailable_copies()==null) newB.setAvailable_copies(old.getAvailable_copies());
 		if(newB.getLanguage()==null) newB.setLanguage(old.getLanguage());
 		if(newB.getPublisher()==null) newB.setPublisher(old.getPublisher());
 		
-		if(bookRepository.updateBook(newB.getTitle(), newB.getEdition(), newB.getYear(),newB.getLanguage(),
+		if(bookRepository.updateBook(newB.getTitle(), newB.getEdition(), newB.getYear(), newB.getAvailable_copies(), newB.getLanguage(),
 				newB.getPublisher(),newB.getIsbn())>0) /*returns the numbers of updated columns*/
 			msg.setMsg("Book updated");
 		
@@ -88,6 +86,25 @@ public class BookingServiceImpl implements BookService{
 
 		return msg;
 		
+	}
+
+
+	@Override
+	public OutputMsg deleteBook(Book b) {
+		OutputMsg  msg= new OutputMsg();
+		
+		if(bookRepository.findById(b.getIsbn()).equals(Optional.empty()))
+		{
+			/*book not present*/
+			msg.setMsg("Book not found");
+		}
+		else 	
+		{
+			bookRepository.delete(b);
+			msg.setMsg("Book deleted");
+		}
+		
+		return msg;
 	}
 	
 }

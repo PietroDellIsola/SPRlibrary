@@ -10,4 +10,5 @@ public interface MemberService {
 	public Member getMember(String fiscal_code);
 	public List<Member> getAllMembers();
 	public OutputMsg updateMember(Member newM);
+	public OutputMsg deleteMember(Member m);
 }

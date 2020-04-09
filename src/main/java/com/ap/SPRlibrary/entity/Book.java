@@ -36,6 +36,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Book {
 
 	private static final long serialVersionUID = 1L;
+	/*In this case the isbn will only refer to a single book.
+	 * There will not two books with the same isbn*/
 	@Id
 	@Column(name = "isbn", nullable = false, length = 13)
 	private String isbn;
@@ -45,6 +47,8 @@ public class Book {
 	private String edition;
 	@Column(name = "year", nullable = false)
 	private Integer year;
+	@Column(name = "available_copies", nullable = false)
+	private Integer available_copies;
 	// @NotEmpty(message = "Specified language is not invalid")
 	@Language
 	@Column(name = "lang", nullable = false, length = 30) /*
@@ -116,6 +120,14 @@ public class Book {
 
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
+	}
+
+	public Integer getAvailable_copies() {
+		return available_copies;
+	}
+
+	public void setAvailable_copies(Integer available_copies) {
+		this.available_copies = available_copies;
 	}
 
 }

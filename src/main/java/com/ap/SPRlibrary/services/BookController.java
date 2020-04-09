@@ -48,4 +48,10 @@ public class BookController {
 	{
 		return bookService.updateBook(b);
 	}
+	
+	@DeleteMapping(value = "/deleteBook")
+	public OutputMsg deleteBook(@RequestBody Book b) 
+	{
+		return bookService.deleteBook(b);
+	}
 }

@@ -11,4 +11,5 @@ public interface BookService {
 	public Book getBook(String isbn);
 	public List<Book> getAllBooks();
 	public OutputMsg updateBook(Book newB);
+	public OutputMsg deleteBook(Book b);
 }

@@ -43,4 +43,10 @@ public class MemberController {
 	{
 		return memberService.updateMember(m);
 	}
+	
+	@DeleteMapping(value = "/deleteMember")
+	public OutputMsg deleteMember(@RequestBody Member m) 
+	{
+		return memberService.deleteMember(m);
+	}
 }

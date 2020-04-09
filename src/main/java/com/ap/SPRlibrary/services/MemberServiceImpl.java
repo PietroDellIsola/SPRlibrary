@@ -85,4 +85,22 @@ public class MemberServiceImpl implements MemberService {
 
 	}
 
+	@Override
+	public OutputMsg deleteMember(Member m) {
+		OutputMsg  msg= new OutputMsg();
+		
+		if(memberRepository.findById(m.getFiscal_code()).equals(Optional.empty()))
+		{
+			/*member not present*/
+			msg.setMsg("Member not found");
+		}
+		else 	
+		{
+			memberRepository.delete(m);
+			msg.setMsg("Member deleted");
+		}
+		
+		return msg;
+	}
+
 }
