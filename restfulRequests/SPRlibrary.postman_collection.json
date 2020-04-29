@@ -1,0 +1,390 @@
+{
+	"info": {
+		"_postman_id": "47a0ddf0-3d12-4dc9-bb7c-bd7d006808b4",
+		"name": "SPRlibrary",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "insertNewBook",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"isbn\":\"prova1\",\n\t\"title\":\"provola\",\n\t\"edition\":\"2\",\n\t\"year\":\"1234\",\t\t\n\t\"available_copies\":5,\n\t\"language\":\"Italian\",\n\t\"publisher\":\"gragnano\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/bookController/insertNewBook",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bookController",
+						"insertNewBook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertNewMember",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n\t\"fiscal_code\":\"12345661234n6g\",\r\n\t\"name\":\"pluto\",\r\n\t\"surname\":\"pp\",\r\n\t\"dob\":\"1999-02-01 00:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/memberController/insertNewMember",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"memberController",
+						"insertNewMember"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMember",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n\t\"fiscal_code\":\"1234566123456n6g\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/memberController/getMember",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"memberController",
+						"getMember"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBook",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n\t\"isbn\":\"prova1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/bookController/getBook",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bookController",
+						"getBook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllBooks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/bookController/getAllBooks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bookController",
+						"getAllBooks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllMembers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/memberController/getAllMembers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"memberController",
+						"getAllMembers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateMember",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n\t\"fiscal_code\":\"1234566123456n6g\",\r\n\t\"name\":\"pippo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/memberController/updateMember",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"memberController",
+						"updateMember"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateBook",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"isbn\":\"234534efwa\",\n\t\"title\":\"fff\",\n\t\"language\":\"English\",\n\t\"publisher\":\"555\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/bookController/updateBook",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bookController",
+						"updateBook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateToReturned",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"copies\":\"2\",\n\t\"book\":{\n\t\t\t\"isbn\":\"prova1\"\n\t\t\t\n\t\t},\n\t\"member\":{ \n\t\t\t\t\"fiscal_code\":\"12345661234n6g\"\n\t\t}\t\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/loanController/updateToReturned",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loanController",
+						"updateToReturned"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteBook",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"isbn\":\"prova\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/bookController/deleteBook",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bookController",
+						"deleteBook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteMember",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n\t\"fiscal_code\":\"prova\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/memberController/deleteMember",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"memberController",
+						"deleteMember"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertNewLoan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"copies\":2,\n\t\"book\":{\n\t\t\t\"isbn\":\"prova1\"\n\t\t\t\n\t\t},\n\t\"member\":{ \n\t\t\t\t\"fiscal_code\":\"12345661234n6g\"\n\t\t}\t\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/loanController/insertNewLoan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loanController",
+						"insertNewLoan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLoan",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"book\":{\n\t\t\t\"isbn\":\"prova1\"\n\t\t\t\n\t\t},\n\t\"member\":{ \n\t\t\t\t\"fiscal_code\":\"12345661234n6g\"\n\t\t}\t\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/loanController/getLoan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loanController",
+						"getLoan"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
