@@ -56,45 +56,5 @@ public class Member {
 
 	@OneToMany(mappedBy = "member")
 	private Set<Loan> loans;
-//
-//	public String getFiscal_code() {
-//		return fiscal_code;
-//	}
-//
-//	public void setFiscal_code(String fiscal_code) {
-//		this.fiscal_code = fiscal_code;
-//	}
-//
-//	public String getName() {
-//		return name;
-//	}
-//
-//	public void setName(String name) {
-//		this.name = name;
-//	}
-//
-//	public String getSurname() {
-//		return surname;
-//	}
-//
-//	public void setSurname(String surname) {
-//		this.surname = surname;
-//	}
-//
-//	public Calendar getDob() {
-//		return dob;
-//	}
-//
-//	public void setDob(Calendar dob) {
-//		this.dob = dob;
-//	}
-//
-//	public Set<Loan> getLoans() {
-//		return loans;
-//	}
-//
-//	public void setLoans(Set<Loan> loans) {
-//		this.loans = loans;
-//	}
 
 }

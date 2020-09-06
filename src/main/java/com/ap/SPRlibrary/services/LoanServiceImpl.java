@@ -108,10 +108,7 @@ public class LoanServiceImpl implements LoanService {
 				}
 
 				else
-					msg.setMsg("There was an error, the loan was not updated to returned"); /*
-																							 * ERRORE RITORNA QUESTO
-																							 * ANCGE SE LO AGGIORNA
-																							 */
+					msg.setMsg("There was an error, the loan was not updated to returned"); 
 			
 		}
 
