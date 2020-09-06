@@ -1,6 +1,7 @@
 package com.ap.SPRlibrary.entity;
 
 import java.util.Calendar;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,12 +15,19 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.AccessLevel;
 /**
  * author Pietro Dell'Isola
  * 
  */
 @Entity
-
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 /*
  * The code @JsonIgnoreProperties({"hibernateLazyInitializer","handler"}) solves
  * error: HTTP Status 500 - Could not write content: No serializer found for
@@ -39,6 +47,7 @@ public class Loan {
 	/* You cannot add other loans with the same member and book */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) /* autoincrement */
+	@Setter(AccessLevel.PROTECTED)
 	private int id_loan;
 
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
@@ -62,61 +71,61 @@ public class Loan {
 
 	@Column(name = "copies", nullable = false)
 	private Integer copies;
-
-	public int getId_loan() {
-		return id_loan;
-	}
-
-	public void setId_loan(int id_loan) {
-		this.id_loan = id_loan;
-	}
-
-	public Calendar getStarting_date() {
-		return starting_date;
-	}
-
-	public void setStarting_date(Calendar starting_date) {
-		this.starting_date = starting_date;
-	}
-
-	public Calendar getEnd_date() {
-		return end_date;
-	}
-
-	public void setEnd_date(Calendar end_date) {
-		this.end_date = end_date;
-	}
-
-	public Book getBook() {
-		return book;
-	}
-
-	public void setBook(Book book) {
-		this.book = book;
-	}
-
-	public Member getMember() {
-		return member;
-	}
-
-	public void setMember(Member member) {
-		this.member = member;
-	}
-
-	public boolean isReturned() {
-		return returned;
-	}
-
-	public void setReturned(boolean returned) {
-		this.returned = returned;
-	}
-
-	public Integer getCopies() {
-		return copies;
-	}
-
-	public void setCopies(Integer copies) {
-		this.copies = copies;
-	}
+//
+//	public int getId_loan() {
+//		return id_loan;
+//	}
+//
+//	public void setId_loan(int id_loan) {
+//		this.id_loan = id_loan;
+//	}
+//
+//	public Calendar getStarting_date() {
+//		return starting_date;
+//	}
+//
+//	public void setStarting_date(Calendar starting_date) {
+//		this.starting_date = starting_date;
+//	}
+//
+//	public Calendar getEnd_date() {
+//		return end_date;
+//	}
+//
+//	public void setEnd_date(Calendar end_date) {
+//		this.end_date = end_date;
+//	}
+//
+//	public Book getBook() {
+//		return book;
+//	}
+//
+//	public void setBook(Book book) {
+//		this.book = book;
+//	}
+//
+//	public Member getMember() {
+//		return member;
+//	}
+//
+//	public void setMember(Member member) {
+//		this.member = member;
+//	}
+//
+//	public boolean isReturned() {
+//		return returned;
+//	}
+//
+//	public void setReturned(boolean returned) {
+//		this.returned = returned;
+//	}
+//
+//	public Integer getCopies() {
+//		return copies;
+//	}
+//
+//	public void setCopies(Integer copies) {
+//		this.copies = copies;
+//	}
 
 }

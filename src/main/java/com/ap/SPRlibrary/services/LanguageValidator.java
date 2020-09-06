@@ -19,7 +19,7 @@ public class LanguageValidator implements ConstraintValidator<Language, String>{
 	
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
-		System.out.println("VALUE: "+value);
+		
 		if(
 					(!value.equalsIgnoreCase(Language.Italian.toString()))
 					&&(!value.equalsIgnoreCase(Language.English.toString()))

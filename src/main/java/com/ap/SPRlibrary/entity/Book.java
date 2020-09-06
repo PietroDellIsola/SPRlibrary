@@ -7,10 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
 
 import com.ap.SPRlibrary.services.Language;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.AccessLevel;
 
 /**
  * author Pietro Dell'Isola
@@ -32,6 +37,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  **/
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 @Table(name = "books")
 public class Book {
 
@@ -40,6 +48,7 @@ public class Book {
 	 * There will not two books with the same isbn*/
 	@Id
 	@Column(name = "isbn", nullable = false, length = 13)
+	@Setter(AccessLevel.PROTECTED)
 	private String isbn;
 	@Column(name = "title", nullable = false, length = 30)
 	private String title;
@@ -62,72 +71,72 @@ public class Book {
 	@OneToMany(mappedBy = "book")
 	private Set<Loan> loans;
 
-	public String getIsbn() {
-		return isbn;
-	}
-
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getEdition() {
-		return edition;
-	}
-
-	public void setEdition(String edition) {
-		this.edition = edition;
-	}
-
-	public Integer getYear() {
-		return year;
-	}
-
-	public void setYear(Integer year) {
-		this.year = year;
-	}
-
-	public Set<Loan> getLoans() {
-		return loans;
-	}
-
-	public void setLoans(Set<Loan> loans) {
-		this.loans = loans;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	public String getLanguage() {
-		return language;
-	}
-
-	public void setLanguage(String language) {
-		this.language = language;
-	}
-
-	public String getPublisher() {
-		return publisher;
-	}
-
-	public void setPublisher(String publisher) {
-		this.publisher = publisher;
-	}
-
-	public Integer getAvailable_copies() {
-		return available_copies;
-	}
-
-	public void setAvailable_copies(Integer available_copies) {
-		this.available_copies = available_copies;
-	}
+//	public String getIsbn() {
+//		return isbn;
+//	}
+//
+//	public void setIsbn(String isbn) {
+//		this.isbn = isbn;
+//	}
+//
+//	public String getTitle() {
+//		return title;
+//	}
+//
+//	public void setTitle(String title) {
+//		this.title = title;
+//	}
+//
+//	public String getEdition() {
+//		return edition;
+//	}
+//
+//	public void setEdition(String edition) {
+//		this.edition = edition;
+//	}
+//
+//	public Integer getYear() {
+//		return year;
+//	}
+//
+//	public void setYear(Integer year) {
+//		this.year = year;
+//	}
+//
+//	public Set<Loan> getLoans() {
+//		return loans;
+//	}
+//
+//	public void setLoans(Set<Loan> loans) {
+//		this.loans = loans;
+//	}
+//
+//	public static long getSerialversionuid() {
+//		return serialVersionUID;
+//	}
+//
+//	public String getLanguage() {
+//		return language;
+//	}
+//
+//	public void setLanguage(String language) {
+//		this.language = language;
+//	}
+//
+//	public String getPublisher() {
+//		return publisher;
+//	}
+//
+//	public void setPublisher(String publisher) {
+//		this.publisher = publisher;
+//	}
+//
+//	public Integer getAvailable_copies() {
+//		return available_copies;
+//	}
+//
+//	public void setAvailable_copies(Integer available_copies) {
+//		this.available_copies = available_copies;
+//	}
 
 }

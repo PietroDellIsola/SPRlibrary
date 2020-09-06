@@ -12,12 +12,20 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 /**
  * author Pietro Dell'Isola
  * 
  */
 @Entity
-
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 /*
  * The code @JsonIgnoreProperties({"hibernateLazyInitializer","handler"}) solves
  * error: HTTP Status 500 - Could not write content: No serializer found for
@@ -36,6 +44,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Member {
 	@Id
 	@Column(name = "fiscal_code", nullable = false, length = 16)
+	@Setter(AccessLevel.PROTECTED)
 	private String fiscal_code;
 	@Column(name = "name", nullable = false, length = 30)
 	private String name;
@@ -47,45 +56,45 @@ public class Member {
 
 	@OneToMany(mappedBy = "member")
 	private Set<Loan> loans;
-
-	public String getFiscal_code() {
-		return fiscal_code;
-	}
-
-	public void setFiscal_code(String fiscal_code) {
-		this.fiscal_code = fiscal_code;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getSurname() {
-		return surname;
-	}
-
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
-
-	public Calendar getDob() {
-		return dob;
-	}
-
-	public void setDob(Calendar dob) {
-		this.dob = dob;
-	}
-
-	public Set<Loan> getLoans() {
-		return loans;
-	}
-
-	public void setLoans(Set<Loan> loans) {
-		this.loans = loans;
-	}
+//
+//	public String getFiscal_code() {
+//		return fiscal_code;
+//	}
+//
+//	public void setFiscal_code(String fiscal_code) {
+//		this.fiscal_code = fiscal_code;
+//	}
+//
+//	public String getName() {
+//		return name;
+//	}
+//
+//	public void setName(String name) {
+//		this.name = name;
+//	}
+//
+//	public String getSurname() {
+//		return surname;
+//	}
+//
+//	public void setSurname(String surname) {
+//		this.surname = surname;
+//	}
+//
+//	public Calendar getDob() {
+//		return dob;
+//	}
+//
+//	public void setDob(Calendar dob) {
+//		this.dob = dob;
+//	}
+//
+//	public Set<Loan> getLoans() {
+//		return loans;
+//	}
+//
+//	public void setLoans(Set<Loan> loans) {
+//		this.loans = loans;
+//	}
 
 }
