@@ -9,6 +9,6 @@ public interface MemberService {
 	public OutputMsg insertNewMember(Member m);
 	public Member getMember(String fiscal_code);
 	public List<Member> getAllMembers();
-	public OutputMsg updateMember(Member newM);
-	public OutputMsg deleteMember(Member m);
+	public OutputMsg updateMember(Member newM, String fiscal_code);
+	public OutputMsg deleteMember(String fiscal_code);
 }

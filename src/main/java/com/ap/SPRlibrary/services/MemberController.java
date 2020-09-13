@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,31 +24,30 @@ public class MemberController {
 	@Autowired 
 	private MemberService memberService; 
 	
-//	@RequestMapping(value = "/insertNuovoVideogioco", method = RequestMethod.POST)
 	@PostMapping(value = "/insertNewMember")
 	public OutputMsg insertNewBook(@RequestBody Member m) {
 		return memberService.insertNewMember(m);
 	}
 	
-	@GetMapping(value = "/getMember")
-	public Member getMember(@RequestBody Member m) {
-		return memberService.getMember(m.getFiscal_code());
+	@GetMapping(value = "/getMember/{fiscal_code}")
+	public Member getMember(@PathVariable String fiscal_code) {
+		return memberService.getMember(fiscal_code);
 	}
 	
 	@GetMapping(value = "/getAllMembers")
 	public List<Member> getAllMembers(){
 		return memberService.getAllMembers();
 	}
-	
-	@PatchMapping(value = "/updateMember")
-	public OutputMsg updateVideogioco(@RequestBody Member m) 
+
+	@PutMapping(value = "/updateMember/{fiscal_code}")
+	public OutputMsg updateVideogioco(@RequestBody Member m, @PathVariable String fiscal_code) 
 	{
-		return memberService.updateMember(m);
+		return memberService.updateMember(m, fiscal_code);
 	}
 	
-	@DeleteMapping(value = "/deleteMember")
-	public OutputMsg deleteMember(@RequestBody Member m) 
+	@DeleteMapping(value = "/deleteMember/{fiscal_code}")
+	public OutputMsg deleteMember(@PathVariable String fiscal_code) 
 	{
-		return memberService.deleteMember(m);
+		return memberService.deleteMember(fiscal_code);
 	}
 }

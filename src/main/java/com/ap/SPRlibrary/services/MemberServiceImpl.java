@@ -54,52 +54,56 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public OutputMsg updateMember(Member newM) {
-		/* with this service it is possible update only name, surname and dob. */
-		OutputMsg msg = new OutputMsg();
-		/*
-		 * First, I look up the member, if he is present, the program set the null value
-		 * sent with the old value
-		 */
+	public OutputMsg updateMember(Member newM, String fiscal_code) {
 
-		if (!memberRepository.existsById(newM.getFiscal_code()))
-			msg.setMsg("Member with fiscal code " + newM.getFiscal_code() + " not found");
+		OutputMsg m = new OutputMsg();
+		Optional<Member> oldMember = memberRepository.findById(fiscal_code);
+		
+		if (newM.getFiscal_code() != null && !newM.getFiscal_code().equals(fiscal_code)) {
+			m.setMsg("You can't edit the fiscal code of Members");
+			return m;
+		}
+
+		if (!oldMember.isPresent()) {
+			m.setMsg("Member not found");
+		}
+
 		else {
-
-			Member old = memberRepository.getOne(newM.getFiscal_code());
-
 			if (newM.getName() == null)
-				newM.setName(old.getName());
+				newM.setName(oldMember.get().getName());
 			if (newM.getSurname() == null)
-				newM.setSurname(old.getSurname());
+				newM.setSurname(oldMember.get().getSurname());
 			if (newM.getDob() == null)
-				newM.setDob(old.getDob());
+				newM.setDob(oldMember.get().getDob());
+			if (newM.getFiscal_code() == null)
+				newM.setFiscal_code(oldMember.get().getFiscal_code());
 
-			if (memberRepository.updateMember(newM.getFiscal_code(), newM.getName(), newM.getDob(),
+			if (memberRepository.updateMember(newM.getName(), newM.getSurname(), newM.getDob(),
 					newM.getFiscal_code()) > 0) /* returns the numbers of updated columns */
-				msg.setMsg("Member updated");
+				m.setMsg("Member updated");
+
+			else
+				m.setMsg("Member not updated");
 
 		}
 
-		return msg;
-
+		return m;
 	}
 
 	@Override
-	public OutputMsg deleteMember(Member m) {
-		OutputMsg  msg= new OutputMsg();
-		
-		if(memberRepository.findById(m.getFiscal_code()).equals(Optional.empty()))
-		{
-			/*member not present*/
+	public OutputMsg deleteMember(String fiscal_code) {
+		OutputMsg msg = new OutputMsg();
+
+		Optional<Member> m = memberRepository.findById(fiscal_code);
+
+		if (m.equals(Optional.empty())) {
+			/* member not present */
 			msg.setMsg("Member not found");
-		}
-		else 	
-		{
-			memberRepository.delete(m);
+		} else {
+			memberRepository.delete(m.get());
 			msg.setMsg("Member deleted");
 		}
-		
+
 		return msg;
 	}
 

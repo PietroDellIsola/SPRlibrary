@@ -44,7 +44,7 @@ import lombok.Setter;
 public class Member {
 	@Id
 	@Column(name = "fiscal_code", nullable = false, length = 16)
-	@Setter(AccessLevel.PROTECTED)
+	//@Setter(AccessLevel.PROTECTED)
 	private String fiscal_code;
 	@Column(name = "name", nullable = false, length = 30)
 	private String name;

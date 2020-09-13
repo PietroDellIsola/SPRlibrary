@@ -48,7 +48,7 @@ public class Book {
 	 * There will not two books with the same isbn*/
 	@Id
 	@Column(name = "isbn", nullable = false, length = 13)
-	@Setter(AccessLevel.PROTECTED)
+	//@Setter(AccessLevel.PROTECTED)
 	private String isbn;
 	@Column(name = "title", nullable = false, length = 30)
 	private String title;

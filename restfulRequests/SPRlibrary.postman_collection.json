@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "47a0ddf0-3d12-4dc9-bb7c-bd7d006808b4",
+		"_postman_id": "ee28d983-ef47-4486-a516-4c52fe3a503a",
 		"name": "SPRlibrary",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"isbn\":\"prova1\",\n\t\"title\":\"provola\",\n\t\"edition\":\"2\",\n\t\"year\":\"1234\",\t\t\n\t\"available_copies\":5,\n\t\"language\":\"Italian\",\n\t\"publisher\":\"gragnano\"\n}",
+					"raw": "{\n\t\"isbn\":\"provola\",\n\t\"title\":\"provola\",\n\t\"edition\":\"2\",\n\t\"year\":\"1234\",\t\t\n\t\"available_copies\":5,\n\t\"language\":\"Italian\",\n\t\"publisher\":\"gragnano\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -105,7 +105,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \r\n\t\"isbn\":\"prova1\"\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -113,7 +113,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/bookController/getBook",
+					"raw": "http://localhost:8080/bookController/getBook/provola",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -121,7 +121,8 @@
 					"port": "8080",
 					"path": [
 						"bookController",
-						"getBook"
+						"getBook",
+						"provola"
 					]
 				}
 			},
@@ -182,11 +183,11 @@
 		{
 			"name": "updateMember",
 			"request": {
-				"method": "PATCH",
+				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \r\n\t\"fiscal_code\":\"1234566123456n6g\",\r\n\t\"name\":\"pippo\"\r\n}",
+					"raw": "{ \r\n\t\"name\":\"pippo\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -194,7 +195,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/memberController/updateMember",
+					"raw": "http://localhost:8080/memberController/updateMember/fiscal_codeM1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -202,7 +203,8 @@
 					"port": "8080",
 					"path": [
 						"memberController",
-						"updateMember"
+						"updateMember",
+						"fiscal_codeM1"
 					]
 				}
 			},
@@ -211,11 +213,11 @@
 		{
 			"name": "updateBook",
 			"request": {
-				"method": "PATCH",
+				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"isbn\":\"234534efwa\",\n\t\"title\":\"fff\",\n\t\"language\":\"English\",\n\t\"publisher\":\"555\"\n}",
+					"raw": "{\n    \"isbn\":\"nuovoooooo\",\n\t\"title\":\"The lord test\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -223,7 +225,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/bookController/updateBook",
+					"raw": "http://localhost:8080/bookController/updateBook/isbn123",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -231,7 +233,8 @@
 					"port": "8080",
 					"path": [
 						"bookController",
-						"updateBook"
+						"updateBook",
+						"isbn123"
 					]
 				}
 			},
@@ -244,7 +247,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"copies\":\"2\",\n\t\"book\":{\n\t\t\t\"isbn\":\"prova1\"\n\t\t\t\n\t\t},\n\t\"member\":{ \n\t\t\t\t\"fiscal_code\":\"12345661234n6g\"\n\t\t}\t\t\n}",
+					"raw": "{\n\t\"copies\":\"2\",\n\t\"book\":{\n\t\t\t\"isbn\":\"isbn124\"\n\t\t\t\n\t\t},\n\t\"member\":{ \n\t\t\t\t\"fiscal_code\":\"fiscal_codeM4\"\n\t\t}\t\t\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -273,7 +276,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"isbn\":\"prova\"\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -281,7 +284,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/bookController/deleteBook",
+					"raw": "http://localhost:8080/bookController/deleteBook/provola",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -289,7 +292,8 @@
 					"port": "8080",
 					"path": [
 						"bookController",
-						"deleteBook"
+						"deleteBook",
+						"provola"
 					]
 				}
 			},

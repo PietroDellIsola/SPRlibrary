@@ -31,8 +31,8 @@ public class LoanController {
 		return loanService.getLoan(l);
 	}
 	
-	
 	@PatchMapping("/updateToReturned")
+	//modifica in put
 	public OutputMsg updateToReturned(@RequestBody Loan l) {
 		return loanService.updateToReturned(l);
 	}

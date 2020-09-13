@@ -10,6 +10,6 @@ public interface BookService {
 	public OutputMsg insertNewBook(Book b);
 	public Book getBook(String isbn);
 	public List<Book> getAllBooks();
-	public OutputMsg updateBook(Book newB);
-	public OutputMsg deleteBook(Book b);
+	public OutputMsg updateBook(Book newB, String isbn);
+	public OutputMsg deleteBook(String isbm);
 }
