@@ -8,14 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.ap.SPRlibrary.services.Language;
+import com.ap.SPRlibrary.utils.Language;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.AccessLevel;
 
 /**
  * author Pietro Dell'Isola

@@ -1,4 +1,4 @@
-package com.ap.SPRlibrary.services;
+package com.ap.SPRlibrary.controllers;
 
 import java.util.List;
 
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ap.SPRlibrary.entity.Book;
 import com.ap.SPRlibrary.entity.OutputMsg;
+import com.ap.SPRlibrary.services.BookService;
 
 @RestController
 @RequestMapping("/bookController")

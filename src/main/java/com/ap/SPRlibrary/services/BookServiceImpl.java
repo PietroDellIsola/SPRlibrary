@@ -33,7 +33,7 @@ public class BookServiceImpl implements BookService {
 			}
 
 			return msg;
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			msg.setMsg("There was an error");
 			e.printStackTrace();
 

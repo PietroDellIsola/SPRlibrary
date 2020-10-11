@@ -1,4 +1,4 @@
-package com.ap.SPRlibrary.services;
+package com.ap.SPRlibrary.utils;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
