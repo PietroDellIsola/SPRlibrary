@@ -14,19 +14,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
-//import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-//import com.ap.SPRlibrary.config.ConfigForTest;
 import com.ap.SPRlibrary.entity.Book;
-import com.ap.SPRlibrary.entity.OutputMsg;
 import com.ap.SPRlibrary.repository.BookRepository;
 import com.ap.SPRlibrary.services.BookService;
 import com.ap.SPRlibrary.services.BookServiceImpl;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = BookServiceImpl.class)
-//@ContextConfiguration(classes = ConfigForTest.class)
 public class BookServiceImplTest {
 	
 	@MockBean
@@ -68,7 +64,6 @@ public class BookServiceImplTest {
 		 assertNotNull(bookService.insertNewBook(book));
 	 }
 	 
-//	 @Test (expected = RuntimeException.class)
 	 @Test
 	 public void insertNewBookExceptionTest() {
 		 Mockito.when(bookRepository.findById(Mockito.any())).thenThrow(RuntimeException.class);
